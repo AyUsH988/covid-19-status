@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { CovidUrl, countries,getStatusByCountry,testUrl} from '../app/status-component/api-config';
+import { CovidUrl, countries,getStatusByCountry,stateUrl,cityUrl} from '../app/status-component/api-config';
 
 
 @Injectable({
@@ -14,7 +14,8 @@ export class CustomHttpService {
   covidurl = CovidUrl;
   countryUrl = countries;
   getStatusByCountryUrl=getStatusByCountry;
-  testUrl=testUrl
+  stateUrl=stateUrl;
+  cityUrl = cityUrl
 
   getCountrtList() {
     return this.http.get(this.countryUrl);
@@ -24,8 +25,12 @@ export class CustomHttpService {
     return this.http.get(this.getStatusByCountryUrl);
   }
 
-  test() {
-    return this.http.get(this.testUrl);
+  getStatusOfState() {
+    return this.http.get(this.stateUrl);
+  }
+
+  getStatusOfCity() {
+    return this.http.get(this.cityUrl);
   }
 
 

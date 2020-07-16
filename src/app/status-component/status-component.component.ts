@@ -15,7 +15,12 @@ export class StatusComponentComponent implements OnInit {
   stateList:any =[];
   activeCountryStatus : any;
   activeStateStatus:any;
-
+  districtList : any;
+  statesInDistrict:any = [];
+  citiesList: any;
+  activeCityStatus : any
+  selectedStateForCity : any;
+  selectedCity = ''
 
   countriesList : any = [];
   ngOnInit() {
@@ -23,8 +28,16 @@ export class StatusComponentComponent implements OnInit {
       this.countriesList = res;
     });
 
-    this.httpService.test().subscribe(res => {
+    this.httpService.getStatusOfState().subscribe(res => {
       this.stateList = res;
+      console.log(res)
+    });
+
+    this.httpService.getStatusOfCity().subscribe(res => {
+      this.districtList = res;
+      this.statesInDistrict = Object.keys(this.districtList);
+      console.log(res);
+
     });
 
   }
@@ -36,7 +49,17 @@ export class StatusComponentComponent implements OnInit {
   }
 
   selectedState(event) {
-    console.log(event)
     this.activeStateStatus = event
+  }
+
+  getCityList(state) {
+    this.citiesList = Object.keys(this.districtList[state]['districtData']);
+    this.selectedStateForCity = state;
+  }
+
+  getStatusOfCity(event) {
+    this.selectedCity = event;
+    console.log('city',event)
+    this.activeCityStatus = this.districtList[this.selectedStateForCity]['districtData'][event];
   }
 }
