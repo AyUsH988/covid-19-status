@@ -44,18 +44,18 @@
       <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in
         {{activeCountryStatus.Country}}</div>
       <div class="row my-2" *ngIf="activeCountryStatus">
-        <div class="col text-center card bg-primary text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeCountryStatus.TotalConfirmed}}</span>
           <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
 
-        <div class="col text-center card bg-success text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeCountryStatus.TotalRecovered}}</span>
           <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
-        <div class="col text-center card bg-danger text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-danger text-white p-2">
 
           <span>Death </span>
           <span>{{activeCountryStatus.TotalDeaths}}</span>
@@ -66,18 +66,18 @@
       <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in
         {{activeCountryStatus.Country}} on {{activeCountryStatus.Date | date: 'fullDate'}}</div>
       <div class="row my-2" *ngIf="activeCountryStatus">
-        <div class="col text-center card bg-primary text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeCountryStatus.NewConfirmed}}</span>
           <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
 
-        <div class="col text-center card bg-success text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeCountryStatus.NewRecovered}}</span>
           <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
-        <div class="col text-center card bg-danger text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-danger text-white p-2">
 
           <span>Death </span>
           <span>{{activeCountryStatus.NewDeaths}}</span>
@@ -110,16 +110,16 @@
         {{activeStateStatus.state}}</div>
 
       <div class="row my-2" *ngIf="activeStateStatus">
-        <div class="col text-center card bg-primary text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeStateStatus.noOfCases}}</span>
         </div>
 
-        <div class="col text-center card bg-success text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeStateStatus.cured}}</span>
         </div>
-        <div class="col text-center card bg-danger text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-danger text-white p-2">
 
           <span>Death </span>
           <span>{{activeStateStatus.deaths}}</span>
@@ -173,21 +173,21 @@
       </div>
 
       <div class="row my-2" *ngIf="activeCityStatus">
-        <div class="col text-center card bg-primary text-white p-2 mx-1">
+        <div class="col-3 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeCityStatus.confirmed}}</span>
         </div>
 
-        <div class="col text-center card bg-warning text-white p-2 mx-1">
+        <div class="col-3 text-center card bg-warning text-white p-2">
           <span>Active </span>
           <span>{{activeCityStatus.active}}</span>
         </div>
 
-        <div class="col text-center card bg-success text-white p-2 mx-1">
+        <div class="col-3 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeCityStatus.recovered}}</span>
         </div>
-        <div class="col text-center card bg-danger text-white p-2 mx-1">
+        <div class="col-3 text-center card bg-danger text-white p-2">
 
           <span>Deceased</span>
           <span>{{activeCityStatus.deceased}}</span>
@@ -196,22 +196,21 @@
 
       <div *ngIf="activeCityStatus" class="h5 text-center text-primary my-4">Today's Count in {{selectedCity}}</div>
       <div class="row my-2" *ngIf="activeCityStatus">
-        <div class="col text-center card bg-primary text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeCityStatus.delta.confirmed}}</span>
         </div>
 
-        <div class="col text-center card bg-success text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeCityStatus.delta.recovered}}</span>
 
         </div>
-        <div class="col text-center card bg-danger text-white p-2 mx-1">
+        <div class="col-4 text-center card bg-danger text-white p-2">
 
           <span>Deceased</span>
           <span>{{activeCityStatus.delta.deceased}}</span>
 
-          <span>Number of deceased caused by Covid-19</span>
 
         </div>
       </div>
