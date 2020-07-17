@@ -92,6 +92,7 @@ export class StatusComponentComponent implements OnInit {
   getStatusOfCity(event) {
     this.selectedCity = event;
     this.cityTotalChartData = [];
+    this.cityLatestChartData = [];
     console.log('city',event)
     this.activeCityStatus = this.districtList[this.selectedStateForCity]['districtData'][event];
 
