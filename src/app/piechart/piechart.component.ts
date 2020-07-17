@@ -14,27 +14,26 @@ export class PiechartComponent implements OnInit, OnChanges {
   chartDatasets;
   public chartOptions: any = {
     responsive: true,
-    borderWidth: 0,
+    borderWidth: 20,
     legend: {
-      segmentShowStroke: false,
-      display: true,
+      segmentShowStroke: true,
+      // display: true,
       position: "bottom",
       labels: {
         fontColor: 'white',
-        boxWidth: 12,
-        fontSize: 10,
-        cursor: "pointer",
+        // boxWidth: 12,
+        // fontSize: 10,
+        // cursor: "pointer",
       }
     },
     plugins: {
       labels: {
-        render: 'value',
+        // render: 'value',
         fontColor: 'white',
       }
     },
   }
-  // chartLabels = ['Download','In', 'Store'];
-  // pieChartData = [300, 500, 100];
+
   chartType = 'pie';
   pieChartLegend = true;
   pieChartPlugins = [];

@@ -2,11 +2,12 @@
 
   <div class="form-container my-3 mx-2 position-relative">
     <div class="d-flex justify-content-center ticket-options-container text-center">
-      <div class="col cursor col-md-2 text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('country')"
-        [ngClass]="{'badge-primary' : selectedType == 'country',
-                      'badge-light' : selectedType != 'country' }">
-        By Country
+      <div class="col col-md-2 cursor text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('city')"
+        [ngClass]="{'badge-primary' : selectedType == 'city',
+                      'badge-light' : selectedType != 'city'}">
+        By City
       </div>
+      
 
       <div class="col col-md-2 cursor text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('state')"
         [ngClass]="{'badge-primary' : selectedType == 'state',
@@ -14,11 +15,12 @@
         By State
       </div>
 
-      <div class="col col-md-2 cursor text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('city')"
-        [ngClass]="{'badge-primary' : selectedType == 'city',
-                      'badge-light' : selectedType != 'city'}">
-        By City
+      <div class="col cursor col-md-2 text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('country')"
+        [ngClass]="{'badge-primary' : selectedType == 'country',
+                      'badge-light' : selectedType != 'country' }">
+        By Country
       </div>
+      
     </div>
     <section *ngIf="selectedType == 'country'">
       <div class="h5 text-center text-primary my-4">Get report By Country</div>

@@ -21,7 +21,7 @@ export class StatusComponentComponent implements OnInit {
   activeCityStatus : any
   selectedStateForCity : any;
   selectedCity = '';
-  selectedType = 'country';
+  selectedType = 'city';
   testUrl;
   helpLineList : any = [];
   stateHelpLine = '';
