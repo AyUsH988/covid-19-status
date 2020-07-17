@@ -20,7 +20,8 @@ export class StatusComponentComponent implements OnInit {
   citiesList: any;
   activeCityStatus : any
   selectedStateForCity : any;
-  selectedCity = ''
+  selectedCity = '';
+  selectedType = 'country'
 
   countriesList : any = [];
   ngOnInit() {
@@ -61,5 +62,9 @@ export class StatusComponentComponent implements OnInit {
     this.selectedCity = event;
     console.log('city',event)
     this.activeCityStatus = this.districtList[this.selectedStateForCity]['districtData'][event];
+  }
+
+  showByType(opt) {
+    this.selectedType = opt
   }
 }

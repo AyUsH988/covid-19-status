@@ -1,216 +1,217 @@
 <div class="container">
-  <section>
-    <div class="h5 text-center text-primary my-4">Get report By Country</div>
-    <div class="row my-5">
-      <div class="col-4">
-        Country
+
+  <div class="form-container my-3 mx-2 position-relative">
+    <div class="d-flex justify-content-center ticket-options-container text-center">
+      <div class="col cursor col-md-2 text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('country')"
+        [ngClass]="{'badge-primary' : selectedType == 'country',
+                      'badge-light' : selectedType != 'country' }">
+        By Country
       </div>
-      <div class="col-8" *ngIf="countriesList">
-        <ng-autocomplete 
-              [data]="countriesList.Countries"
-              [searchKeyword]="keyword"
-              (selected)='selectCustomer($event)'
-              placeholder="Enter the country"
-              [itemTemplate]="itemTemplate"
-              name=""
-        
-              [notFoundTemplate]="notFoundTemplate">                              
-            </ng-autocomplete>
-            <ng-template #itemTemplate let-item>
+
+      <div class="col col-md-2 cursor text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('state')"
+        [ngClass]="{'badge-primary' : selectedType == 'state',
+                      'badge-light' : selectedType != 'state'}">
+        By State
+      </div>
+
+      <div class="col col-md-2 cursor text-center p-2 cursor-pointer badge badge-pill" (click)="showByType('city')"
+        [ngClass]="{'badge-primary' : selectedType == 'city',
+                      'badge-light' : selectedType != 'city'}">
+        By City
+      </div>
+    </div>
+    <section *ngIf="selectedType == 'country'">
+      <div class="h5 text-center text-primary my-4">Get report By Country</div>
+      <div class="row my-5">
+        <div class="col-4 text-white">
+          Country
+        </div>
+        <div class="col-8" *ngIf="countriesList">
+          <ng-autocomplete [data]="countriesList.Countries" [searchKeyword]="keyword"
+            (selected)='selectCustomer($event)' placeholder="Enter the country" [itemTemplate]="itemTemplate" name=""
+            [notFoundTemplate]="notFoundTemplate">
+          </ng-autocomplete>
+          <ng-template #itemTemplate let-item>
             <a [innerHTML]="item.Country"></a>
-            </ng-template>
-            
-            <ng-template #notFoundTemplate let-notFound>
+          </ng-template>
+
+          <ng-template #notFoundTemplate let-notFound>
             <div [innerHTML]="notFound"></div>
-            </ng-template>
-      </div>
-    </div>
-
-    <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in {{activeCountryStatus.Country}}</div>
-    <div class="row my-2" *ngIf="activeCountryStatus">
-      <div class="col text-center card bg-primary text-white p-2 mx-1">
-        <span>Confirmed : {{activeCountryStatus.TotalConfirmed}}</span>
-        <span>Number of active cases of Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+          </ng-template>
+        </div>
       </div>
 
-      <div class="col text-center card bg-success text-white p-2 mx-1">
-        <span>Recoverd : {{activeCountryStatus.TotalRecovered}}</span>
-        <span>Number of Recoveries from Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
-      </div>
-      <div class="col text-center card bg-danger text-white p-2 mx-1">
-        
-        <span>Death : {{activeCountryStatus.TotalDeaths}}</span>
-        <span>Number of Deaths caused by Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
-      </div>
-    </div>
+      <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in
+        {{activeCountryStatus.Country}}</div>
+      <div class="row my-2" *ngIf="activeCountryStatus">
+        <div class="col text-center card bg-primary text-white p-2 mx-1">
+          <span>Confirmed : {{activeCountryStatus.TotalConfirmed}}</span>
+          <span>Number of active cases of Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
 
-    <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in {{activeCountryStatus.Country}} on {{activeCountryStatus.Date | date: 'fullDate'}}</div>
-    <div class="row my-2" *ngIf="activeCountryStatus">
-      <div class="col text-center card bg-primary text-white p-2 mx-1">
-        <span>Confirmed : {{activeCountryStatus.NewConfirmed}}</span>
-        <span>Number of active cases of Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        <div class="col text-center card bg-success text-white p-2 mx-1">
+          <span>Recoverd : {{activeCountryStatus.TotalRecovered}}</span>
+          <span>Number of Recoveries from Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
+        <div class="col text-center card bg-danger text-white p-2 mx-1">
+
+          <span>Death : {{activeCountryStatus.TotalDeaths}}</span>
+          <span>Number of Deaths caused by Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
       </div>
 
-      <div class="col text-center card bg-success text-white p-2 mx-1">
-        <span>Recoverd : {{activeCountryStatus.NewRecovered}}</span>
-        <span>Number of Recoveries from Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
-      </div>
-      <div class="col text-center card bg-danger text-white p-2 mx-1">
-        
-        <span>Death : {{activeCountryStatus.NewDeaths}}</span>
-        <span>Number of Deaths caused by Covid-19</span>
-        <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
-      </div>
-    </div>
-  </section>
+      <div *ngIf="activeCountryStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in
+        {{activeCountryStatus.Country}} on {{activeCountryStatus.Date | date: 'fullDate'}}</div>
+      <div class="row my-2" *ngIf="activeCountryStatus">
+        <div class="col text-center card bg-primary text-white p-2 mx-1">
+          <span>Confirmed : {{activeCountryStatus.NewConfirmed}}</span>
+          <span>Number of active cases of Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
 
-  <section>
-    <div class="h5 text-center text-primary my-4">Get report By Indian States</div>
-    <div class="row my-5">
-      <div class="col-4">
-        State:
+        <div class="col text-center card bg-success text-white p-2 mx-1">
+          <span>Recoverd : {{activeCountryStatus.NewRecovered}}</span>
+          <span>Number of Recoveries from Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
+        <div class="col text-center card bg-danger text-white p-2 mx-1">
+
+          <span>Death : {{activeCountryStatus.NewDeaths}}</span>
+          <span>Number of Deaths caused by Covid-19</span>
+          <span>Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
+        </div>
       </div>
-      <div class="col-8" *ngIf="stateList">
-        <ng-autocomplete 
-              [data]="stateList"
-              [searchKeyword]="'state'"
-              (selected)='selectedState($event)'
-              [itemTemplate]="itemTemplate1"
-              name=""
-        
-              [notFoundTemplate]="notFoundTemplate1">                              
-            </ng-autocomplete>
-            <ng-template #itemTemplate1 let-item>
+    </section>
+
+    <section *ngIf="selectedType == 'state'">
+      <div class="h5 text-center text-primary my-4">Get report By Indian States</div>
+      <div class="row my-5">
+        <div class="col-4 text-white">
+          State:
+        </div>
+        <div class="col-8" *ngIf="stateList">
+          <ng-autocomplete [data]="stateList" [searchKeyword]="'state'" (selected)='selectedState($event)'
+            [itemTemplate]="itemTemplate1" name="" [notFoundTemplate]="notFoundTemplate1">
+          </ng-autocomplete>
+          <ng-template #itemTemplate1 let-item>
             <a [innerHTML]="item.state"></a>
-            </ng-template>
-            
-            <ng-template #notFoundTemplate1 let-notFound>
+          </ng-template>
+
+          <ng-template #notFoundTemplate1 let-notFound>
             <div [innerHTML]="notFound"></div>
-            </ng-template>
-      </div>
-    </div>
-
-    <div *ngIf="activeStateStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in {{activeStateStatus.state}}</div>
-
-    <div class="row my-2" *ngIf="activeStateStatus">
-      <div class="col text-center card bg-primary text-white p-2 mx-1">
-        <span>Confirmed : {{activeStateStatus.noOfCases}}</span>
-        <span>Number of active cases of Covid-19</span>
+          </ng-template>
+        </div>
       </div>
 
-      <div class="col text-center card bg-success text-white p-2 mx-1">
-        <span>Recoverd : {{activeStateStatus.cured}}</span>
-        <span>Number of Recoveries from Covid-19</span>
+      <div *ngIf="activeStateStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in
+        {{activeStateStatus.state}}</div>
+
+      <div class="row my-2" *ngIf="activeStateStatus">
+        <div class="col text-center card bg-primary text-white p-2 mx-1">
+          <span>Confirmed : {{activeStateStatus.noOfCases}}</span>
+          <span>Number of active cases of Covid-19</span>
+        </div>
+
+        <div class="col text-center card bg-success text-white p-2 mx-1">
+          <span>Recoverd : {{activeStateStatus.cured}}</span>
+          <span>Number of Recoveries from Covid-19</span>
+        </div>
+        <div class="col text-center card bg-danger text-white p-2 mx-1">
+
+          <span>Death : {{activeStateStatus.deaths}}</span>
+          <span>Number of Deaths caused by Covid-19</span>
+
+        </div>
       </div>
-      <div class="col text-center card bg-danger text-white p-2 mx-1">
-        
-        <span>Death : {{activeStateStatus.deaths}}</span>
-        <span>Number of Deaths caused by Covid-19</span>
-        
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- By City -->
+    <!-- By City -->
 
-  <section>
-    <div class="h5 text-center text-primary my-4">Get report By Indian City</div>
-    <div class="row my-5">
-      <div class="col-4">
-        Select the state:
-      </div>
-      <div class="col-8" *ngIf="statesInDistrict">
-        <ng-autocomplete 
-              [data]="statesInDistrict"
-              [searchKeyword]="'state'"
-              (selected)='getCityList($event)'
-              [itemTemplate]="itemTemplate1"
-              name=""
-        
-              [notFoundTemplate]="notFoundTemplate1">                              
-            </ng-autocomplete>
-            <ng-template #itemTemplate1 let-item>
+    <section *ngIf="selectedType == 'city'">
+      <div class="h5 text-center text-primary my-4">Get report By Indian City</div>
+      <div class="row my-5">
+        <div class="col-4 text-white">
+          Select the state:
+        </div>
+        <div class="col-8" *ngIf="statesInDistrict">
+          <ng-autocomplete [data]="statesInDistrict" [searchKeyword]="'state'" (selected)='getCityList($event)'
+            [itemTemplate]="itemTemplate1" name="" [notFoundTemplate]="notFoundTemplate1">
+          </ng-autocomplete>
+          <ng-template #itemTemplate1 let-item>
             <a [innerHTML]="item"></a>
-            </ng-template>
-            
-            <ng-template #notFoundTemplate1 let-notFound>
-            <div [innerHTML]="notFound"></div>
-            </ng-template>
-      </div>
-    </div>
+          </ng-template>
 
-    <div class="row my-5">
-      <div class="col-4">
-        Select the City:
+          <ng-template #notFoundTemplate1 let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
       </div>
-      <div class="col-8">
-        <ng-autocomplete 
-              [data]="citiesList"
-              [searchKeyword]=""
-              (selected)='getStatusOfCity($event)'
-              [itemTemplate]="itemTemplate1"
-              name=""
-        
-              [notFoundTemplate]="notFoundTemplate1">                              
-            </ng-autocomplete>
-            <ng-template #itemTemplate1 let-item>
+
+      <div class="row my-5">
+        <div class="col-4 text-white">
+          Select the City:
+        </div>
+        <div class="col-8">
+          <ng-autocomplete [data]="citiesList" [searchKeyword]="" (selected)='getStatusOfCity($event)'
+            [itemTemplate]="itemTemplate1" name="" [notFoundTemplate]="notFoundTemplate1">
+          </ng-autocomplete>
+          <ng-template #itemTemplate1 let-item>
             <a [innerHTML]="item"></a>
-            </ng-template>
-            
-            <ng-template #notFoundTemplate1 let-notFound>
+          </ng-template>
+
+          <ng-template #notFoundTemplate1 let-notFound>
             <div [innerHTML]="notFound"></div>
-            </ng-template>
-      </div>
-    </div>
-
-    <div *ngIf="activeCityStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in {{selectedCity}}</div>
-
-    <div class="row my-2" *ngIf="activeCityStatus">
-      <div class="col text-center card bg-primary text-white p-2 mx-1">
-        <span>Confirmed : {{activeCityStatus.confirmed}}</span>
-        <span>Number of confirmed cases of Covid-19</span>
+          </ng-template>
+        </div>
       </div>
 
-      <div class="col text-center card bg-warning text-white p-2 mx-1">
-        <span>Active : {{activeCityStatus.active}}</span>
-        <span>Number of active cases of Covid-19</span>
+      <div *ngIf="activeCityStatus" class="h5 text-center text-primary my-4">Total Count of Covid-19 in {{selectedCity}}
       </div>
 
-      <div class="col text-center card bg-success text-white p-2 mx-1">
-        <span>Recoverd : {{activeCityStatus.recovered}}</span>
-        <span>Number of Recoveries from Covid-19</span>
-      </div>
-      <div class="col text-center card bg-danger text-white p-2 mx-1">
-        
-        <span>Deceased : {{activeCityStatus.deceased}}</span>
-        <span>Number of deceased caused by Covid-19</span>
-        
-      </div>
-    </div>
+      <div class="row my-2" *ngIf="activeCityStatus">
+        <div class="col text-center card bg-primary text-white p-2 mx-1">
+          <span>Confirmed : {{activeCityStatus.confirmed}}</span>
+          <span>Number of confirmed cases of Covid-19</span>
+        </div>
 
-    <div *ngIf="activeCityStatus" class="h5 text-center text-primary my-4">Today's Count in {{selectedCity}}</div>
-    <div class="row my-2" *ngIf="activeCityStatus">
-      <div class="col text-center card bg-primary text-white p-2 mx-1">
-        <span>Confirmed : {{activeCityStatus.delta.confirmed}}</span>
-        <span>Number of confirmed cases of Covid-19</span>
+        <div class="col text-center card bg-warning text-white p-2 mx-1">
+          <span>Active : {{activeCityStatus.active}}</span>
+          <span>Number of active cases of Covid-19</span>
+        </div>
+
+        <div class="col text-center card bg-success text-white p-2 mx-1">
+          <span>Recoverd : {{activeCityStatus.recovered}}</span>
+          <span>Number of Recoveries from Covid-19</span>
+        </div>
+        <div class="col text-center card bg-danger text-white p-2 mx-1">
+
+          <span>Deceased : {{activeCityStatus.deceased}}</span>
+          <span>Number of deceased caused by Covid-19</span>
+
+        </div>
       </div>
 
-      <div class="col text-center card bg-success text-white p-2 mx-1">
-        <span>Recoverd : {{activeCityStatus.delta.recovered}}</span>
-        <span>Number of Recoveries from Covid-19</span>
+      <div *ngIf="activeCityStatus" class="h5 text-center text-primary my-4">Today's Count in {{selectedCity}}</div>
+      <div class="row my-2" *ngIf="activeCityStatus">
+        <div class="col text-center card bg-primary text-white p-2 mx-1">
+          <span>Confirmed : {{activeCityStatus.delta.confirmed}}</span>
+          <span>Number of confirmed cases of Covid-19</span>
+        </div>
+
+        <div class="col text-center card bg-success text-white p-2 mx-1">
+          <span>Recoverd : {{activeCityStatus.delta.recovered}}</span>
+          <span>Number of Recoveries from Covid-19</span>
+        </div>
+        <div class="col text-center card bg-danger text-white p-2 mx-1">
+
+          <span>Deceased : {{activeCityStatus.delta.deceased}}</span>
+          <span>Number of deceased caused by Covid-19</span>
+
+        </div>
       </div>
-      <div class="col text-center card bg-danger text-white p-2 mx-1">
-        
-        <span>Deceased : {{activeCityStatus.delta.deceased}}</span>
-        <span>Number of deceased caused by Covid-19</span>
-        
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
