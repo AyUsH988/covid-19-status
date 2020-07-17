@@ -69,19 +69,16 @@
         <div class="col-4 text-center card bg-primary text-white p-2">
           <span>Confirmed </span>
           <span>{{activeCountryStatus.NewConfirmed}}</span>
-          <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
 
         <div class="col-4 text-center card bg-success text-white p-2">
           <span>Recovered </span>
           <span>{{activeCountryStatus.NewRecovered}}</span>
-          <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
         <div class="col-4 text-center card bg-danger text-white p-2">
 
           <span>Death </span>
           <span>{{activeCountryStatus.NewDeaths}}</span>
-          <span class="date-font">Last Updated On {{activeCountryStatus.Date | date: 'fullDate'}}</span>
         </div>
       </div>
     </section>
