@@ -5,3 +5,7 @@
 .cursor {
     cursor: pointer;
 }
+
+.date-font {
+    font-size: 11px;
+}
