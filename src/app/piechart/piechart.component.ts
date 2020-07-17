@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { ChartType, ChartOptions } from 'chart.js';
 @Component({
   selector: 'app-piechart',
   templateUrl: './piechart.component.html',
@@ -6,58 +7,58 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitte
 })
 export class PiechartComponent implements OnInit, OnChanges {
 
-  // @Input() chartData;
-  // @Input() chartLabel;
-  // chartType: string = 'pie';
-  // chartDatasets: any;
-  // chartLabels: [];
-  // @Output() onClick = new EventEmitter();
+  @Input('label') label;
+  @Input('data') data;
+
+
+  chartDatasets;
+  public chartOptions: any = {
+    responsive: true,
+    borderWidth: 0,
+    legend: {
+      segmentShowStroke: false,
+      display: true,
+      position: "bottom",
+      labels: {
+        fontColor: 'white',
+        boxWidth: 12,
+        fontSize: 10,
+        cursor: "pointer",
+      }
+    },
+    plugins: {
+      labels: {
+        render: 'value',
+        fontColor: 'white',
+      }
+    },
+  }
+  // chartLabels = ['Download','In', 'Store'];
+  // pieChartData = [300, 500, 100];
+  chartType = 'pie';
+  pieChartLegend = true;
+  pieChartPlugins = [];
+
+  
 
   ngOnInit() {
     // this.renderChart()
+    this.renderChart();
   }
 
-  // renderChart() {
-  //   this.chartDatasets = [{
-  //     data: this.chartData,
-  //     borderWidth: 0, //this will hide border
-  //   }];
-  //   this.chartLabels = this.chartLabel;
-  // }
-
-  // public chartOptions: any = {
-  //   responsive: true,
-  //   // maintainAspectRatio: true,
-  //   borderWidth: 0,
-  //   legend: {
-  //     segmentShowStroke: false,
-  //     display: true,
-  //     position: "bottom",
-  //     labels: {
-  //       // fontColor: '#FF3333',
-  //       boxWidth: 12,
-  //       fontSize: 10,
-  //       // usePointStyle: true,
-  //       cursor: "pointer",
-  //     }
-  //   },
-  //   plugins: {
-  //     labels: {
-  //       render: 'value',
-  //     }
-  //   },
-  // }
-
-  // chartClicked(event) {
-  //   this.onClick.emit(event);
-  // }
+  renderChart() {
+    this.chartDatasets = [{
+      data: this.data,
+      borderWidth: 0, 
+    }];
+  }
 
   ngOnChanges(changes: SimpleChanges) {
-    // if (changes && changes.chartData && changes.chartData.currentValue) {
-    //   this.chartData = changes.chartData.currentValue;
-    // this.chartLabel = changes.chartLabel.currentValue;
-    // this.renderChart();
+    if (changes && changes.data && changes.data.currentValue) {
+      this.data = changes.data.currentValue;
+    this.renderChart();
     }
-  // }
+  }
+  
 
 }

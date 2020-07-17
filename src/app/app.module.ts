@@ -7,8 +7,8 @@ import { StatusService } from './status-component/status-service.service';
 import { CustomHttpService } from './customhttp-service.service';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { FormsModule } from '@angular/forms';
-// import { ChartsModule } from 'ng2-charts';
-// import 'chartjs-plugin-labels';
+import { ChartsModule } from 'ng2-charts';
+import 'chartjs-plugin-labels';
 import { PiechartComponent } from './piechart/piechart.component';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { PiechartComponent } from './piechart/piechart.component';
     HttpClientModule,
     FormsModule,
     AutocompleteLibModule,
-    // ChartsModule
+    ChartsModule
   ],
   providers: [StatusService, CustomHttpService],
   // exports: [ ],

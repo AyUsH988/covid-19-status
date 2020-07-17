@@ -22,8 +22,9 @@
     "@angular/router": "^6.1.0",
     "angular-ng-autocomplete": "^2.0.1",
     "chart.js": "^2.9.3",
+    "chartjs-plugin-labels": "^1.1.0",
     "core-js": "^2.5.4",
-    "ng2-charts": "^2.3.2",
+    "ng2-charts": "^2.2.5",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

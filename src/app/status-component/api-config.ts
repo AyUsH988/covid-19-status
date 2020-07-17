@@ -6,7 +6,9 @@ const getStatusByCountry = 'https://api.covid19api.com/live/country/south-africa
 const cityUrl='https://api.covid19india.org/state_district_wise.json'
 const stateUrl='https://covid-india-cases.herokuapp.com/states'
 
+const helpLineUrl = 'https://covid-19india-api.herokuapp.com/helpline_numbers' ;
 
 
 
-export { CovidUrl, countries,getStatusByCountry,stateUrl,cityUrl};
+
+export { CovidUrl, countries,getStatusByCountry,stateUrl,cityUrl,helpLineUrl};
